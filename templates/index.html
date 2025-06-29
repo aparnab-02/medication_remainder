@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medication Reminder</title>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>Medication Reminder</h1>
+    <div id="reminders-list">
+        <ul id="reminders">
+            <!-- Reminder items will be dynamically added here -->
+        </ul>
+    </div>
+    <form id="add-reminder-form">
+        {% csrf_token %}
+        <p>Welcome, {{ username }}</p>
+        <label for="name">Medication Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required><br>
+        <button type="submit">Add Reminder</button>
+    </form>
+    
+    <script src="{% static 'app.js' %}"></script>
+</body>
+</html>
